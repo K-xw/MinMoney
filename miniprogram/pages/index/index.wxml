@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view>
+<form bindsubmit="formSubmit">
+    <view class='nav'>
+        <view class="nav-spend {{isActive ? 'active':'' }}" data-active='{{isActive}}' bindtap="changeClass">支出</view>
+        <view class="nav-income {{isActive ? '':'active' }}" data-active='{{!isActive}}' bindtap="changeClass">收入</view>
+    </view>
+
+    <view class="weui-cells">
+        <!--金额-->
+        <view class="weui-cell">
+            <view class="weui-cell__hd">
+                <image src='/images/index/money.png' style="height:50rpx; width:50rpx;margin-right:5rpx;display:block"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <text>金额</text>
+                <input type="digit" placeholder="0.00" value='{{money}}' bindblur="confirmMoney"/>
+            </view>
+        </view>
+        <!--类别-->
+        <view class="weui-cell">
+            <view class="weui-cell__hd">
+                <image src='/images/index/category.png' style="height:50rpx; width:50rpx;margin-right:5rpx;display:block"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <text>类别</text>
+                <view class="weui-cell__ft category">{{seleCategory.name}}</view>
+                <a href="javascript:;" class="weui-btn weui-btn_primary category_btn" bindtap="tapCategory">管理</a>
+            </view>    
+        </view>
+        <!--日期-->
+        <view class="weui-cell">
+            <view class="weui-cell__hd">
+                <image src='/images/index/calendar.png' style="height:50rpx; width:50rpx;margin-right:5rpx;display:block"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <text>日期</text>
+                <picker
+				    mode="date"
+				    value="{{date}}"
+				    bindchange="bindDateChange"
+				>
+				<view class="weui-cell__ft date_pick">{{date}}</view>
+				</picker>
+            </view>        
+        </view>
+        <!--说明-->
+        <view class="weui-cell">
+            <view class="weui-cell__hd" style="position: relative;top: -62rpx;">
+                <image src='/images/index/compile.png' style="height:50rpx; width:50rpx;margin-right:5rpx;display:block"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <text>说明</text>
+                <textarea class="weui-textarea" placeholder="可输入备注" rows="2" bindblur="confirmNote"></textarea>
+            </view>
+        </view>
+    </view>
+    <view class="weui-btn-area">
+		<a href="javascript:;" class="weui-btn weui-btn_primary sure_btn" bindtap="submit">确定</a>
+	</view>
+</form>
+    <view class="conclusion">
+    	<text>2019,去爱，去努力！</text>
+    </view>
+</view>

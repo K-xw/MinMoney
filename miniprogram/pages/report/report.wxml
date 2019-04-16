@@ -1,0 +1,111 @@
+<view>
+    <view class="divLine line_top"></view>
+    <view class='com-selectBox'>
+        <view class='com-sContent' bindtap='selectToggle'>
+            <view class='com-sTxt'>{{nowText}}</view>
+            <image src='/images/down.png' class='com-sImg' animation="{{animationData}}"></image>
+        </view>
+        
+        <view wx:if="{{selectShow}}">
+       
+            <view class="weui-grids" >
+                <a href="javascript:;" class="weui-grid self" wx:for="{{selectArray}}" data-index="{{index}}" wx:key='' bindtap='setText'>
+                    <view class="weui-grid__icon">
+                        <image src="/images/categorys/{{item.img}}" alt="" style="width: 28px;height: 28px;"></image>
+                    </view>
+                    <text class="weui-grid__label">
+                {{item.name}}
+                </text>
+                </a>
+            </view>
+        </view>
+        
+
+    </view>
+
+    <view class='chart_tap' bindtap="tapChart"><image src="/images/chart.png" style="width: 16px; height: 16px;"></image><text>统计</text></view>
+
+    <!--<view class="divLine"></view>-->
+    <view wx:if="{{!selectShow}}">
+        <view class="report_desc">
+            <picker
+                        mode="date"
+                        value="{{date}}"
+                        fields="month"
+                        bindchange="bindDateChange"
+            >
+                <view class="report_month">
+                    <text>{{date}}</text>
+                    <image src="/images/triangle.png"></image>
+                </view>
+            </picker>
+            <view class="report_money">
+                <view class="report_spend">支出 ￥148.22</view>
+                <view class="report_income">收入 ￥1412.22</view>
+            </view>
+        </view>
+
+        <view class="weui-panel__bd">
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="/images/categorys/food.png" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">餐饮-2019.04.01</h4>
+                    <text class="weui-media-box__desc">401宿舍节happy</text>
+                </view>
+                <view class="desc_money">
+                    +100.25
+                </view>
+            </a>
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="/images/categorys/food.png" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">餐饮-2019.04.01</h4>
+                    <text class="weui-media-box__desc">401宿舍节happy</text>
+                </view>
+                <view class="desc_money">
+                    +100.25
+                </view>
+            </a>
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="/images/categorys/food.png" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">餐饮-2019.04.01</h4>
+                    <text class="weui-media-box__desc">401宿舍节happy</text>
+                </view>
+                <view class="desc_money">
+                    +100.25
+                </view>
+            </a>
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="/images/categorys/food.png" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">餐饮-2019.04.01</h4>
+                    <text class="weui-media-box__desc">401宿舍节happy</text>
+                </view>
+                <view class="desc_money">
+                    +100.25
+                </view>
+            </a>
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="/images/categorys/food.png" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">餐饮-2019.04.01</h4>
+                    <text class="weui-media-box__desc">401宿舍节happy</text>
+                </view>
+                <view class="desc_money">
+                    +100.25
+                </view>
+            </a>
+        </view>
+    </view>
+</view>

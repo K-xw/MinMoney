@@ -1,0 +1,12 @@
+<view>
+    <view class="weui-grids">
+        <a href="javascript:;" class="weui-grid self" wx:for="{{categoryList}}" wx:key="*this" bindtap="confirmCategory" data-item="{{item}}">
+            <view class="weui-grid__icon">
+                <image src="/images/categorys/{{item.img}}" alt="" style="width: 28px;height: 28px;"></image>
+            </view>
+            <text class="weui-grid__label">
+               {{item.name}}
+            </text>
+        </a>
+    </view>
+</view>

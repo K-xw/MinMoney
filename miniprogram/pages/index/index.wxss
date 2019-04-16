@@ -1,0 +1,100 @@
+/**index.wxss**/
+/**
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.usermotto {
+  margin-top: 200px;
+}
+**/
+.nav {
+    height: 100rpx;
+    width: 400rpx;
+    margin: 20rpx auto;
+    background-color: #fff;
+    border-radius: 65rpx;
+    border: 1rpx solid #eee;
+    padding: 2rpx;
+}
+.nav view {
+    height: 100%;
+    width: 50%;
+    color: #000;
+    line-height: 100rpx;
+    display: inline-block;
+    text-align: center;
+    border-radius: 65rpx;  
+    vertical-align: middle;
+    
+}
+.nav view.active {
+    background-color: #eee;
+}
+.nav-spend {
+   
+}
+.nav-income {
+    
+}
+.weui-cell__bd text {
+    display: inline-block;
+    float: left;
+    margin: 0 35rpx 0 18rpx;
+}
+.weui-cell__bd input {
+    width: auto;
+    float: left;
+}
+/* 类别-样式 */
+.date_pick{
+  padding-right:250rpx;
+}
+.category,.date_pick{
+  float: left;
+}
+/*类别的按钮*/
+.category_btn {
+  background-color:#eeeeeea3;
+  color:#000;
+  width:100rpx;
+  font-size:10px;
+  margin:0 0;
+  float:right;
+  padding:0 0;
+}
+
+.weui-cell__bd textarea {
+  display: inline-block;
+  float: left;
+  margin: 10rpx 0 0 18rpx;
+  height: 100rpx;
+}
+.sure_btn{
+  background-color: #eee;
+  color: #000;
+  width: 200rpx;
+}
+/* .sure_btn:hover,.category_btn:hover{
+  background-color: #ea6f5a;
+} */
+.conclusion {
+  margin: 60rpx auto;
+  text-align: center;
+  color: #d8d4d3;
+  padding: 0 auto;
+}
+
+a.weui-btn.weui-btn_primary.sure_btn:visited,a.weui-btn.weui-btn_primary.category_btn:visited{background-color:#eee;} 
+a.weui-btn.weui-btn_primary.sure_btn:hover,a.weui-btn.weui-btn_primary.category_btn:hover{background-color:#eee;} 
+a.weui-btn.weui-btn_primarysss.sure_btn:active,a.weui-btn.weui-btn_primary.category_btn:active{background-color:#eee;}
