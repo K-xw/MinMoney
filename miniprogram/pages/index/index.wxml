@@ -51,7 +51,7 @@
             </view>
             <view class="weui-cell__bd">
                 <text>说明</text>
-                <textarea class="weui-textarea" placeholder="可输入备注" rows="2" bindblur="confirmNote"></textarea>
+                <textarea class="weui-textarea" placeholder="可输入备注" rows="2" bindblur="confirmNote" value='{{money}}'></textarea>
             </view>
         </view>
     </view>

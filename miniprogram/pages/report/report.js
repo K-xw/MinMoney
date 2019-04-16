@@ -15,7 +15,8 @@ Page({
         logs: [],
         selectArray: [],
         date:'本月',
-        openid:''
+        openid:'',
+        moneyList:[]
     },
     //跳转到统计页面
     tapChart: function() {
@@ -33,10 +34,29 @@ Page({
             openid: app.globalData.openid
         })
         console.log(this.data.openid)
+        this.initData()
+        
     },
     //初始数据
     initData: function(){
+        //获取数据库
+        //获取数据库里的Money集合
+        const db = wx.cloud.database({
+            env: 'test-6e75df'
+        });
 
+        db.collection('Money').where({
+            _openid: this.data.openid // 填入当前用户 openid
+        }).get({
+            success:res => {
+                console.log(res.data)
+                this.setData({
+                    moneyList: res.data
+                })
+                
+            }
+        })
+        
     },
     //option的显示与否
     selectToggle: function() {

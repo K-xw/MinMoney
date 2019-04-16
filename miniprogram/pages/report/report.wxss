@@ -1,31 +1,34 @@
 /* pages/report/report.wxss */
-.content{
-	
+
+.content {
 }
-.com-sContent{
+
+.com-sContent {
     background: white;
     font-size: 16px;
     position: relative;
     height: 30px;
     line-height: 30px;
-    width:25%;
-
+    width: 25%;
 }
-.com-sImg{
+
+.com-sImg {
     position: absolute;
     left: 50px;
     top: 7px;
     width: 20px;
     height: 14px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
-.com-sTxt{
+
+.com-sTxt {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding:0 20px 0 20px;
+    padding: 0 20px 0 20px;
     font-size: 14px;
 }
+
 /* .divLine{
     background: #E0E3DA;
     width: 100%;
@@ -42,74 +45,91 @@
 .weui-grids {
     position: static;
 }
+
 .weui-grid {
     width: 25%;
     padding: 15px 10px;
     position: static;
 }
-.weui-grid__label{
+
+.weui-grid__label {
     line-height: 15px;
 }
-.chart_tap{
-   top:13rpx;
-   position:absolute;
-   right:15rpx; 
-  padding-right: 7px;
+
+.chart_tap {
+    top: 13rpx;
+    position: absolute;
+    right: 15rpx;
+    padding-right: 7px;
 }
-.chart_tap image{
+
+.chart_tap image {
     width: 16px;
     height: 16px;
-    top:2px;
-    position:absolute;
-    right:38px ;
+    top: 2px;
+    position: absolute;
+    right: 38px;
 }
-.chart_tap text{
+
+.chart_tap text {
     font-size: 14px;
 }
+
 .report_desc {
     width: 100%;
     height: 115rpx;
     background-color: #f2f2f2;
-    overflow:hidden;
+    overflow: hidden;
 }
+
 .report_month {
     width: 120rpx;
     height: 60rpx;
     background-color: #fff;
     border-radius: 65rpx;
     border: 1rpx solid #eee;
-    position:relative;
-    top:25rpx;
-    left:50rpx;
+    position: relative;
+    top: 25rpx;
+    left: 50rpx;
 }
+
 .report_month text {
     padding: 5rpx;
 }
+
 .report_month image {
     width: 100rpx;
     height: 100rpx;
-    position:relative;
-    top:-67rpx;
-    left:48rpx;
-    transition: all .3s ease;
+    position: relative;
+    top: -67rpx;
+    left: 48rpx;
+    transition: all 0.3s ease;
 }
 
 .report_money {
-    position:relative;
-    top:-50rpx;
-    right:22rpx;
-    float:right;
-    font-size:28rpx;
-    margin:12rpx;
-    color:#353434ad;
+    position: relative;
+    top: -50rpx;
+    right: 22rpx;
+    float: right;
+    font-size: 28rpx;
+    margin: 12rpx;
+    color: #353434ad;
 }
-.desc_money{
+
+.weui-media-box__hd.money_box {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.desc_money {
     float: right;
     position: relative;
     color: red;
-    top:-30rpx;
-
+    top: -30rpx;
+    font-size: 50rpx;
 }
-.weui-media-box__desc{
+
+.weui-media-box__desc {
     padding-top: 25rpx;
 }
