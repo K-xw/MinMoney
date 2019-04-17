@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        isActive: true, //true 是支出  false 是收入
     },
 
     /**

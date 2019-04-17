@@ -129,116 +129,116 @@ App({
                 }
             ],
             spendCategory: [{
-                    id: '0',
+                    id: '1',
                     name: '饮食',
                     img: 'food.png'
                 }, {
-                    id: '1',
+                    id: '2',
                     name: '服饰美容',
                     img: 'clothing.png'
                 },
                 {
-                    id: '2',
+                    id: '3',
                     name: '生活日用',
                     img: 'daily.png'
                 }, {
-                    id: '3',
+                    id: '4',
                     name: '住房缴费',
                     img: 'house.png'
                 },
                 {
-                    id: '4',
+                    id: '5',
                     name: '交通出行',
                     img: 'traffic.png'
                 }, {
-                    id: '5',
+                    id: '6',
                     name: '通讯',
                     img: 'chat.png'
                 },
                 {
-                    id: '6',
+                    id: '7',
                     name: '文教娱乐',
                     img: 'play.png'
                 }, {
-                    id: '7',
+                    id: '8',
                     name: '健康',
                     img: 'health.png'
                 },
                 {
-                    id: '8',
+                    id: '9',
                     name: '理财',
                     img: 'financial.png'
                 }, {
-                    id: '9',
+                    id: '10',
                     name: '保险',
                     img: 'insurance.png'
                 },
                 {
-                    id: '10',
+                    id: '11',
                     name: '借还款',
                     img: 'replay.png'
                 }, {
-                    id: '11',
+                    id: '12',
                     name: '人情往来',
                     img: 'human.png'
                 },
                 {
-                    id: '12',
+                    id: '13',
                     name: '公益',
                     img: 'love.png'
                 }, {
-                    id: '13',
+                    id: '14',
                     name: '小买卖',
                     img: 'businesses.png'
                 },
                 {
-                    id: '14',
+                    id: '15',
                     name: '酬劳',
                     img: 'salary.png'
                 }, {
-                    id: '15',
+                    id: '17',
                     name: '其他',
                     img: 'other.png'
                 }
             ],
             incomeCategory: [{
-                    id: '0',
+                    id: '9',
                     name: '理财',
                     img: 'financial.png'
                 }, {
-                    id: '1',
+                    id: '10',
                     name: '保险',
                     img: 'insurance.png'
                 },
                 {
-                    id: '2',
+                    id: '11',
                     name: '借还款',
                     img: 'replay.png'
                 }, {
-                    id: '3',
+                    id: '12',
                     name: '人情往来',
                     img: 'human.png'
                 },
                 {
-                    id: '4',
+                    id: '13',
                     name: '公益',
                     img: 'love.png'
                 }, {
-                    id: '5',
+                    id: '14',
                     name: '小买卖',
                     img: 'businesses.png'
                 },
                 {
-                    id: '6',
+                    id: '15',
                     name: '酬劳',
                     img: 'salary.png'
                 }, {
-                    id: '7',
+                    id: '16',
                     name: '奖金',
                     img: 'bonus.png'
                 },
                 {
-                    id: '8',
+                    id: '17',
                     name: '其他',
                     img: 'other.png'
                 }

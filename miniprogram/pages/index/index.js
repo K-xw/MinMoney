@@ -120,15 +120,6 @@ Page({
     },
     //提交表单，将用户数据添加到云端数据库
     submit(e) {
-    //    var that = this;
-    /*    var record = {};
-        record.money = this.data.money;
-        record.seleCategory = this.data.seleCategory;
-        record.seleDate = this.data.date;
-        record.note = this.data.note;
-        record.active = this.data.isActive;
-    */
-        
         this.onAdd();
     },
     //向数据库插入数据
@@ -164,6 +155,8 @@ Page({
             //        counterId: res._id,
             //    })
                 wx.showToast({
+                //    icon: 'none',
+                    
                     title: '新增记录成功',
                 })
                 this.setData({

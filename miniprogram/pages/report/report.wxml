@@ -9,7 +9,7 @@
         <view wx:if="{{selectShow}}">
        
             <view class="weui-grids" >
-                <a href="javascript:;" class="weui-grid self" wx:for="{{selectArray}}" data-index="{{index}}" wx:key='' bindtap='setText'>
+                <a href="javascript:;" class="weui-grid self" wx:for="{{selectArray}}" data-index="{{item}}" wx:key='*this' bindtap='setText' style="box-sizing: border-box;">
                     <view class="weui-grid__icon">
                         <image src="/images/categorys/{{item.img}}" alt="" style="width: 28px;height: 28px;"></image>
                     </view>
@@ -40,8 +40,8 @@
                 </view>
             </picker>
             <view class="report_money">
-                <view class="report_spend">支出 ￥148.22</view>
-                <view class="report_income">收入 ￥1412.22</view>
+                <view class="report_spend">支出 ￥{{spendCount}}</view>
+                <view class="report_income">收入 ￥{{incomeCount}}</view>
             </view>
         </view>
 

@@ -21,6 +21,11 @@ const formatDateMonth = date => {
     const month = date.getMonth() + 1
     return [year, month].map(formatNumber).join('-')
 }
+//日期格式：yyyy-mm
+const formatDateYear = date => {
+    const year = date.getFullYear()
+    return year
+}
 const formatNumber = n => {
     n = n.toString()
     return n[1] ? n : '0' + n
@@ -29,5 +34,6 @@ const formatNumber = n => {
 module.exports = {
     formatTime: formatTime,
     formatDate: formatDate,
-    formatDateMonth: formatDateMonth
+    formatDateMonth: formatDateMonth,
+    formatDateYear: formatDateYear
 }

@@ -1,1 +1,24 @@
 /* pages/chart/chart.wxss */
+.nav {
+    height: 100rpx;
+    width: 400rpx;
+    margin: 20rpx auto;
+    background-color: #fff;
+    border-radius: 65rpx;
+    border: 1rpx solid #eee;
+    padding: 2rpx;
+}
+.nav view {
+    height: 100%;
+    width: 50%;
+    color: #000;
+    line-height: 100rpx;
+    display: inline-block;
+    text-align: center;
+    border-radius: 65rpx;  
+    vertical-align: middle;
+    
+}
+.nav view.active {
+    background-color: #eee;
+}

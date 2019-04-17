@@ -1,2 +1,7 @@
 <!--pages/chart/chart.wxml-->
-<text>pages/chart/chart.wxml</text>
+<view>
+    <view class='nav'>
+        <view class="nav-spend {{isActive ? 'active':'' }}" data-active='{{isActive}}' bindtap="changeClass">支出</view>
+        <view class="nav-income {{isActive ? '':'active' }}" data-active='{{!isActive}}' bindtap="changeClass">收入</view>
+    </view>
+</view>
