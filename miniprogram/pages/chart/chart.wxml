@@ -1,7 +1,26 @@
 <!--pages/chart/chart.wxml-->
 <view>
+
+    <view class='chart_month'>
+        <picker class="chart_picker" mode="date" value="{{date}}" fields="month" bindchange="bindDateChange">
+            <view class="report_month">
+                <text>{{date}}</text>
+                <image src="/images/triangle.png"></image>
+            </view>
+        </picker>
+    </view>
     <view class='nav'>
         <view class="nav-spend {{isActive ? 'active':'' }}" data-active='{{isActive}}' bindtap="changeClass">支出</view>
         <view class="nav-income {{isActive ? '':'active' }}" data-active='{{!isActive}}' bindtap="changeClass">收入</view>
     </view>
+
+    <view class='header'>
+            <view class='top'>
+                <view class='tit'>总支出</view>
+                <view class='num'>(共62笔)</view>
+                <view class='total'>￥8888.88</view>
+            </view>   
+    </view>
+    <view class='contain'>sadsda</view>
+    
 </view>

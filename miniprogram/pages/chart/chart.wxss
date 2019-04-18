@@ -1,24 +1,91 @@
 /* pages/chart/chart.wxss */
+page{
+  background-color: #f4f4f4e3;
+}
+.chart_picker{
+    width: 30%;
+    margin: 0 auto;
+    top:10rpx;
+    position:relative;
+    left:24rpx;
+}
+.report_month {
+   height: 60rpx;
+}
+.report_month image {
+    width: 80rpx;
+    height: 80rpx;
+    position: relative;
+    top: -62rpx;
+    left: 125rpx;
+}
 .nav {
     height: 100rpx;
-    width: 400rpx;
+    width: 100%;
     margin: 20rpx auto;
     background-color: #fff;
-    border-radius: 65rpx;
-    border: 1rpx solid #eee;
     padding: 2rpx;
 }
 .nav view {
     height: 100%;
-    width: 50%;
+    width: 25%;
     color: #000;
     line-height: 100rpx;
     display: inline-block;
     text-align: center;
-    border-radius: 65rpx;  
     vertical-align: middle;
-    
+    margin-left: 12.5%;  
 }
 .nav view.active {
-    background-color: #eee;
+    color:rgba(4, 4, 233, 0.781);
+    border-bottom: 5rpx solid rgba(4, 4, 233, 0.781)
+}
+.nav-income {
+    left: 12.5%;
+    position: relative;
+}
+.header{
+    width: 90%;
+    height: 100rpx;
+    margin: 5% 5% 1% 5%;
+    position: relative;
+    background-color: #fff; 
+    border-radius: 2%;
+    box-shadow: 0 5rpx 10rpx #dad9d9;   
+}
+.top{
+    overflow: hidden;
+    top:25%;
+    position:relative;
+
+}
+.tit{
+    width:20%;
+    font-weight:bold;
+    font-size:40rpx;
+    padding:0 0 0 10rpx;
+    margin-left:2%;
+    float:left;
+}
+.num{
+    width:20%;
+    font-size:32rpx;
+    color: #a8a7a7;
+    margin: 5rpx 0;
+    float: left;
+}
+.total{
+    font-size:46rpx;
+    margin-right:4%;
+    float:right;
+    font-weight:bold;
+}
+.contain{
+    width: 90%;
+    height: 700rpx;
+    margin: 0 5%;
+    position: relative;
+    background-color: #fff; 
+    border-radius: 2%;
+    box-shadow: 0 5rpx 10rpx #dad9d9;
 }
