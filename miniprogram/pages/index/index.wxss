@@ -20,13 +20,8 @@
     
 }
 .nav view.active {
-    background-color: #eee;
-}
-.nav-spend {
-   
-}
-.nav-income {
-    
+    background-color: #1296db;
+    color: #fff;
 }
 .weui-cell__bd text {
     display: inline-block;

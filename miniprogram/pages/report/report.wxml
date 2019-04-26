@@ -25,7 +25,7 @@
 
     <view class='chart_tap' bindtap="tapChart"><image src="/images/chart.png" style="width: 16px; height: 16px;"></image><text>统计</text></view>
 
-    <!--<view class="divLine"></view>-->
+
     <view wx:if="{{!selectShow}}">
         <view class="report_desc">
             <picker
@@ -45,7 +45,31 @@
             </view>
         </view>
 
-        <view class="weui-panel__bd">
+
+<!-- 外层包裹视图 -->
+<view class="cont">
+  <!-- 列表 -->
+  <view wx:for="{{moneyList}}" wx:key="index" class="list" data-item="{{item}}">
+    <!-- 滑动删除 -->
+    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" data-_id="{{item._id}}" style="{{item.shows}}" class="list_del txt">
+      <!-- 列表图片 -->
+      <image class="list_img" mode="aspectFit" src="/images/categorys/{{item.category.img}}"></image>
+      <!-- 列表名称 -->
+      <text class='list_name'>{{item.category.name}}</text>
+      <!-- 列表标题 -->
+      <label class='list_title'>{{item.seleDate}}</label>
+      <!-- 活动时间 -->
+      <text class='list_datas'>{{item.note}}</text>
+      <view class="desc_money">
+                    {{item.money}}
+                </view>
+    
+    </view>
+    <!-- 删除 -->
+    <view data-id="{{item._id}}" bindtap="delItem" class="list_del del">删除</view>
+  </view>
+</view>
+<!--        <view class="weui-panel__bd">
             <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" wx:for="{{moneyList}}" wx:key="*this"  data-item="{{item}}">
                 <view class="weui-media-box__hd money_box">
                     <image class="weui-media-box__thumb" src="/images/categorys/{{item.category.img}}" alt=""></image>
@@ -57,8 +81,8 @@
                 <view class="desc_money">
                     {{item.money}}
                 </view>
-            </a>
-            
+            </a>    
         </view>
+-->
     </view>
 </view>

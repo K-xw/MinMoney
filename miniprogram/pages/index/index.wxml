@@ -14,7 +14,7 @@
             </view>
             <view class="weui-cell__bd">
                 <text>金额</text>
-                <input type="digit" placeholder="0.00" value='{{money}}' bindblur="confirmMoney"/>
+                <input type="digit" placeholder="0.00" value='{{money}}' bindinput="inputWatch" data-model="money"/>
             </view>
         </view>
         <!--类别-->
@@ -51,7 +51,7 @@
             </view>
             <view class="weui-cell__bd">
                 <text>说明</text>
-                <textarea class="weui-textarea" placeholder="可输入备注" rows="2" bindblur="confirmNote" value='{{money}}'></textarea>
+                <textarea class="weui-textarea" placeholder="可输入备注" rows="2" bindinput="inputWatch" value='{{note}}' data-model="note"></textarea>
             </view>
         </view>
     </view>

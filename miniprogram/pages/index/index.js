@@ -5,6 +5,7 @@ const util = require('../../utils/utils.js')
 
 Page({
     data: {
+        _date:'',   //当前日期，始终不变
         isActive: true, //true 是支出  false 是收入
         money: '', //金额
         userInfo: {},
@@ -50,11 +51,14 @@ Page({
             })
         }
         this.setData({
-            date: util.formatDate(new Date())
+            date: util.formatDate(new Date()),
+            _date:util.formatDate(new Date())
         })
+
         this.onGetOpenid();
 
     },
+    
     //获取openid
     onGetOpenid: function() {
         // 调用云函数
@@ -62,7 +66,7 @@ Page({
             name: 'login',
             data: {},
             success: res => {
-                console.log('[云函数] [login] user openid: ', res.result.openid)
+                console.log('[云函数] [login] user openid: index.js ', res.result.openid)
                 app.globalData.openid = res.result.openid
                 this.setData({
                     openid : res.result.openid
@@ -106,17 +110,29 @@ Page({
             date: e.detail.value
         })
     },
+    //监听 金额input 和 说明textarea 的值
+    inputWatch:function(e){
+        console.log(e);
+        let item = e.currentTarget.dataset.model;
+        this.setData({
+            [item]: e.detail.value
+        });
+    //    console.log(item, this.data.money)
+    //   console.log(item, this.data.note)
+    },
     //实时监听金额input的值
     confirmMoney(e) {
         this.setData({
             money: e.detail.value
         })
+    //    console.log("金额input", e.detail.value)
     },
     //实时监听说明input的值
-    confirmNote(e) {
+    confirmNote(event) {
         this.setData({
-            note: e.detail.value
+            note: event.detail.value
         })
+        console.log("说明input", event.detail.value)
     },
     //提交表单，将用户数据添加到云端数据库
     submit(e) {
@@ -141,8 +157,7 @@ Page({
        
         db.collection('Money').add({
             data: {
-                _openId: this.openid,
-//                userName:'柯_xw',
+                _openId: this.data.openid,
                 money: this.data.insertMoney,
                 category : this.data.seleCategory,
                 seleDate : this.data.date,
@@ -154,14 +169,14 @@ Page({
             //    this.setData({
             //        counterId: res._id,
             //    })
-                wx.showToast({
-                //    icon: 'none',
-                    
+                wx.showToast({                  
                     title: '新增记录成功',
                 })
                 this.setData({
                     money: '',
-                    note:''
+                    note:'',
+                    date: _date
+
                 })
                 console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
             },

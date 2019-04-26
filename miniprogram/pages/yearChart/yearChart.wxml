@@ -1,14 +1,7 @@
-<!--pages/chart/chart.wxml-->
+<!--pages/yearChart/yearChart.wxml-->
 <view>
-
     <view class='chart_month'>
-        <picker class="chart_picker" mode="date" value="{{date}}" fields="month" bindchange="bindDateChangeMonth" wx:if="{{isSele}}">
-            <view class="report_month">
-                <text>{{date}}</text>
-                <image src="/images/triangle.png"></image>
-            </view>
-        </picker>
-        <picker class="chart_picker" mode="date" value="{{year}}" fields="year" bindchange="bindDateChangeYear" wx:if="{{!isSele}}">
+        <picker class="chart_picker" mode="date" value="{{year}}" fields="year" bindchange="bindDateChangeYear">
             <view class="report_month">
                 <text style='top:-35rpx;position:relative;left:45rpx;'>{{year}}</text>
                 <image src="/images/triangle.png" style='top:-10rpx;left:27rpx;'></image>
@@ -27,28 +20,22 @@
             <view class='total'>￥{{monTotal}}</view>
         </view>
     </view>
+
     <view class='contain'>
-    <!--
         <view class='con_cate'>
             <view class="left {{isSele ? 'isSele':'' }}" data-select='{{isSele}}' data-cate='cate' bindtap="changeChart">分类</view>
-
             <view class="right {{isSele ? '':'isSele' }}" data-select='{{!isSele}}' data-cate='month' bindtap="changeChart">月份</view>
         </view>
-    -->
-        <view class='cate_chart' wx:if="{{selectShow}}" >
-            <canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas" style="width: 110%;height: 100%;" wx:if="{{isSele}}"></canvas>
-            <!--
+
+        <view class='cate_chart' wx:if="{{selectShow}}">
+            <canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas" style="width: 120%;height: 100%;" wx:if="{{isSele}}"></canvas>
             <view style='text-align:center;position:relative;margin-top:20rpx;margin-bottom:20rpx;left:48rpx' wx:if="{{!isSele}}">年度支出收入比</view>
             <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas" style="width: 100%;height:100%;left:48rpx;" wx:if="{{!isSele}}"></canvas>
-            -->
         </view>
-
 
         <view wx:if="{{!selectShow}}">
             <image class='none_img' src='/images/none_big.png' mode="aspectFit"></image>
             <view class='none'>本月没有数据</view>
         </view>
-
     </view>
-
 </view>

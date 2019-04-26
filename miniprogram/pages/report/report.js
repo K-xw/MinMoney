@@ -19,12 +19,13 @@ Page({
         moneyList:[],   //当前页面 数据数组
         spendCount:0,   //支出总金额
         incomeCount:0,   //收入 总金额
-        _month:''   //用来条件查询
+        _month:'',   //用来条件查询
+        delBtnWidth: 185, //删除按钮宽度单位（rpx）
     },
     //跳转到统计页面
     tapChart: function() {
         wx.navigateTo({
-          url: '../chart/chart'
+            url: '../chart/chart'
         })
     },
 
@@ -39,13 +40,14 @@ Page({
             openid: app.globalData.openid,
             _month: nowDate.split('-')[1]
         })
-        console.log(this.data.openid)
+        console.log("report.js",this.data.openid)
         this.initData()
-
+        this.initEleWidth();
     },
     //初始数据
     initData: function(o){
         var that = this;
+        var result = []
         //获取数据库
         //获取数据库里的Money集合
         const db = wx.cloud.database({
@@ -71,16 +73,16 @@ Page({
             _openid: this.data.openid, // 填入当前用户 openid
             seleDate: reg_date,
             'category.id': _id,
-            
         }).get({
             success:res => {
-                console.log(res.data)
+                console.log("report.js",res.data)
                 if (res.data.length == 0){
                     wx.showToast({
                         image: '/images/none.png',
                         title: '本月没有数据',
                     })
                 }
+                res.data.reverse()
                 this.setData({
                     moneyList: res.data
                 })
@@ -183,5 +185,131 @@ Page({
         obj.categoryid = '';
         obj.dat = seleM;
         this.initData(obj)
-    }
+    },
+    //获取元素自适应后的实际宽度 
+    getEleWidth: function (w) {
+        var real = 0;
+        try {
+            var res = wx.getSystemInfoSync().windowWidth;
+            var scale = (750 / 2) / (w / 2); //以宽度750px设计稿做宽度的自适应 
+            // console.log(scale); 
+            real = Math.floor(res / scale);
+            return real;
+        } catch (e) {
+            return false;
+            // Do something when catch error 
+        }
+    },
+    initEleWidth: function () {
+        var delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
+        this.setData({
+            delBtnWidth: delBtnWidth
+        });
+    },
+
+    // 开始滑动事件
+    touchS: function (e) {
+        if (e.touches.length == 1) {
+    //        console.log("touchS", e)
+            this.setData({
+                //设置触摸起始点水平方向位置 
+                startX: e.touches[0].clientX
+            });
+        }
+    },
+    touchM: function (e) {
+   //     console.log("touchM", e)
+        if (e.touches.length == 1) {
+            //手指移动时水平方向位置 
+            var moveX = e.touches[0].clientX;
+            //手指起始点位置与移动期间的差值 
+            var disX = this.data.startX - moveX;
+            var delBtnWidth = this.data.delBtnWidth;
+            var txtStyle = "";
+            if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变 
+                txtStyle = "left:0px";
+            } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离 
+                txtStyle = "left:-" + disX + "px";
+                if (disX >= delBtnWidth) {
+                    //控制手指移动距离最大值为删除按钮的宽度 
+                    txtStyle = "left:-" + delBtnWidth + "px";
+                }
+            }
+            //获取手指触摸的是哪一项 
+            var index = e.currentTarget.dataset.index;
+            var moneyList = this.data.moneyList;
+            moneyList[index].shows = txtStyle;
+    //        console.log("1", moneyList[index].shows);
+            //更新列表的状态 
+            this.setData({
+                moneyList: moneyList
+            });
+        }
+    },
+    // 滑动中事件
+    touchE: function (e) {
+    //    console.log("touchE", e)
+        if (e.changedTouches.length == 1) {
+            //手指移动结束后水平位置 
+            var endX = e.changedTouches[0].clientX;
+            //触摸开始与结束，手指移动的距离 
+            var disX = this.data.startX - endX;
+            var delBtnWidth = this.data.delBtnWidth;
+            //如果距离小于删除按钮的1/2，不显示删除按钮 
+            var txtStyle = "";
+            txtStyle = disX > delBtnWidth / 2 ? "left:-" + delBtnWidth + "px" : "left:0px";
+
+    //        console.log("touchE", txtStyle)
+    //        console.log("touchE", disX)
+    //        console.log("touchE", delBtnWidth)
+    //        console.log("touchE  更新前", this.data.moneyList)
+            //获取手指触摸的是哪一项 
+            var index = e.currentTarget.dataset.index;
+            var moneyList = this.data.moneyList;
+            moneyList[index].shows = txtStyle;
+   //         console.log("1", moneyList[index].shows);
+            //更新列表的状态 
+            this.setData({
+                moneyList: moneyList
+            });
+
+        } else {
+            console.log("2");
+        }
+    },
+    //点击删除按钮事件
+    delItem: function (e) {
+        //获取列表中要删除项的下标
+        var index = e.currentTarget.dataset.index;
+        var _id = e.currentTarget.dataset.id;  // 唯一标识 _id 用来删除数据库里的数据
+        var moneyList = this.data.moneyList;
+        //移除列表中下标为index的项
+        moneyList.splice(index, 1);
+        //更新列表的状态
+        this.setData({
+            moneyList: moneyList
+        });
+        console.log(_id)
+        //获取数据库
+        //获取数据库里的Money集合
+        const db = wx.cloud.database({
+            env: 'test-6e75df'
+        });
+        try {
+            db.collection('Money').doc(_id).remove().then(res=>{
+        //        console.log(res)
+        //        console.log(res.stats.removed)
+                if (res.stats.removed == 1){
+                    wx.showToast({
+                        title: '删除成功！',
+                    })
+                    
+                }
+            })
+        } catch (e) {
+            console.error(e)
+        }
+
+    },
+
 })

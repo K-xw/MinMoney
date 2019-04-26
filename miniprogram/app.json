@@ -1,15 +1,15 @@
 {
     "pages": [
-        
         "pages/index/index",
         "pages/report/report",
         "pages/category/category",
         "pages/chart/chart",
-        "pages/userCenter/userCenter"
+        "pages/userCenter/userCenter",
+        "pages/yearChart/yearChart"
     ],
     "tabBar": {
         "color": "#bfbfbf",
-        "selectedColor": "#2c2c2c",
+        "selectedColor": "#1296db",
         "list": [
             {
                 "pagePath": "pages/index/index",
@@ -18,24 +18,25 @@
                 "selectedIconPath": "images/tabBar/icon_account_fill.png"
             },
             {
+           
                 "pagePath": "pages/report/report",
                 "text": "账单",
                 "iconPath": "images/tabBar/icon_bill.png",
                 "selectedIconPath": "images/tabBar/icon_bill_fill.png"
             },
             {
-                "pagePath": "pages/userCenter/userCenter",
-                "text": "我",
-                "iconPath": "images/tabBar/icon_signal.png",
-                "selectedIconPath": "images/tabBar/icon_signal_fill.png"
+                "pagePath": "pages/yearChart/yearChart",
+                "text": "年统计",
+                "iconPath": "images/tabBar/icon_chart.png",
+                "selectedIconPath": "images/tabBar/icon_chart_fill.png"
             }
         ]
     },
     "window": {
-        "backgroundColor": "#F6F6F6",
+        "backgroundColor": "#1296db",
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#F6F6F6",
-        "navigationBarTitleText": "云开发 QuickStart",
+        "navigationBarBackgroundColor": "#f9f9f9",
+        "navigationBarTitleText": "天天理财",
         "navigationBarTextStyle": "black"
     }
 }
