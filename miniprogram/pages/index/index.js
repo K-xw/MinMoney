@@ -25,6 +25,7 @@ Page({
     onLoad: function() {
         // 获取用户信息
         if (app.globalData.userInfo) {
+            console.log("index.js", app.globalData.userInfo)
             this.setData({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
@@ -55,7 +56,7 @@ Page({
             _date:util.formatDate(new Date())
         })
 
-        this.onGetOpenid();
+    //    this.onGetOpenid();
 
     },
     
@@ -95,7 +96,7 @@ Page({
             url: '../category/category?bool=' + this.data.isActive
         })
     },
-    getUserInfo: function(e) {
+/*    getUserInfo: function(e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
@@ -103,6 +104,7 @@ Page({
             hasUserInfo: true
         })
     },
+*/
     //日期选择器函数
     bindDateChange(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
