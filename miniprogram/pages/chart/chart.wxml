@@ -8,12 +8,13 @@
                 <image src="/images/triangle.png"></image>
             </view>
         </picker>
-        <picker class="chart_picker" mode="date" value="{{year}}" fields="year" bindchange="bindDateChangeYear" wx:if="{{!isSele}}">
+<!--        <picker class="chart_picker" mode="date" value="{{year}}" fields="year" bindchange="bindDateChangeYear" wx:if="{{!isSele}}">
             <view class="report_month">
                 <text style='top:-35rpx;position:relative;left:45rpx;'>{{year}}</text>
                 <image src="/images/triangle.png" style='top:-10rpx;left:27rpx;'></image>
             </view>
         </picker>
+-->
     </view>
     <view class='nav'>
         <view class="nav-spend {{isActive ? 'active':'' }}" data-active='{{isActive}}' bindtap="changeClass">支出</view>
@@ -28,19 +29,8 @@
         </view>
     </view>
     <view class='contain'>
-    <!--
-        <view class='con_cate'>
-            <view class="left {{isSele ? 'isSele':'' }}" data-select='{{isSele}}' data-cate='cate' bindtap="changeChart">分类</view>
-
-            <view class="right {{isSele ? '':'isSele' }}" data-select='{{!isSele}}' data-cate='month' bindtap="changeChart">月份</view>
-        </view>
-    -->
-        <view class='cate_chart' wx:if="{{selectShow}}" >
+        <view class='cate_chart' wx:if="{{selectShow}}">
             <canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas" style="width: 110%;height: 100%;" wx:if="{{isSele}}"></canvas>
-            <!--
-            <view style='text-align:center;position:relative;margin-top:20rpx;margin-bottom:20rpx;left:48rpx' wx:if="{{!isSele}}">年度支出收入比</view>
-            <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas" style="width: 100%;height:100%;left:48rpx;" wx:if="{{!isSele}}"></canvas>
-            -->
         </view>
 
 

@@ -33,10 +33,11 @@
         ]
     },
     "window": {
-        "backgroundColor": "#1296db",
+        "backgroundColor": "#eee",
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#f9f9f9",
-        "navigationBarTitleText": "天天理财",
+        "navigationBarTitleText": "天天记账",
         "navigationBarTextStyle": "black"
-    }
+    },
+    "cloud": true
 }

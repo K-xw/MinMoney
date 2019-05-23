@@ -142,7 +142,9 @@ view.isSele {
 }
 
 .none {
-    width: 250rpx;
+    width: 175rpx;
     margin: 0 auto;
     font-size: 40rpx;
+    position: relative;
+    top: -42rpx;
 }

@@ -5,6 +5,9 @@ const wxCharts = require('../../utils/wxcharts-min.js')
 const app = getApp();
 var yearArr = []
 var flag = true //标志
+const db = wx.cloud.database({
+    env: 'test-6e75df'
+});
 
 Page({
 
@@ -61,9 +64,6 @@ Page({
                 count: ''
             })
         }
-   //     this.setData({
-    //        isSele: true,
-    //    })
         yearArr = []
         this.getAll(0, this.piecb)
     },
@@ -81,10 +81,10 @@ Page({
 
             yearArr = []
             this.getallMon(0, this.columcb)
-            let _year = this.data.date.split('-')[0]
-            this.setData({
-                year: _year
-            })
+    //        let _year = this.data.date.split('-')[0]
+    //        this.setData({
+    //            year: _year
+    //        })
             
         } else if (cate == 'cate') {
             yearArr = []
@@ -99,9 +99,6 @@ Page({
         var year = this.data.year
         var reg_date = new RegExp(year);
         console.log(reg_date)
-        const db = wx.cloud.database({
-            env: 'test-6e75df'
-        });
         db.collection('Money').where({
             _openid: this.data.openid, // 填入当前用户 openid
             seleDate: reg_date,
@@ -125,6 +122,9 @@ Page({
                         }
                         _cb(yearArr)
                     } else {
+                        this.setData({
+                            selectShow: true,
+                        })
                         flag = false
                         
                         yearArr = yearArr.concat(res.data)
@@ -143,9 +143,7 @@ Page({
         console.log(year)
         var reg_date = new RegExp(year);
         console.log(reg_date)
-        const db = wx.cloud.database({
-            env: 'test-6e75df'
-        });
+        
         db.collection('Money').where({
             _openid: this.data.openid, // 填入当前用户 openid
             seleDate: reg_date
@@ -366,8 +364,14 @@ Page({
             year: seleYear
         })
         console.log(this.data.year)
+        var _is = this.data.isSele
+        if(!_is){
+            this.setData({
+                isSele: true
+            })
+        }
         yearArr = []
         flag = true
-        this.getallMon(0, this.columcb)
+        this.getAll(0, this.piecb)
     },
 })

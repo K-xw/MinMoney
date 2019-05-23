@@ -28,12 +28,7 @@
 
     <view wx:if="{{!selectShow}}">
         <view class="report_desc">
-            <picker
-                        mode="date"
-                        value="{{date}}"
-                        fields="month"
-                        bindchange="bindDateChange"
-            >
+            <picker mode="date" value="{{date}}" fields="month" bindchange="bindDateChange">
                 <view class="report_month">
                     <text>{{date}}</text>
                     <image src="/images/triangle.png"></image>

@@ -15,13 +15,18 @@ page {
 .report_month {
     height: 60rpx;
 }
-
+.report_month text{
+    float: left;
+    line-height: 60rpx;
+}
 .report_month image {
-    width: 80rpx;
-    height: 80rpx;
+    width: 68rpx;
+    height: 60rpx;
     position: relative;
-    top: -62rpx;
+ /*   top: -62rpx;
     left: 125rpx;
+*/
+    left: -14rpx;
 }
 
 .nav {

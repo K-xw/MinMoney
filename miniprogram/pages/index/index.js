@@ -56,7 +56,7 @@ Page({
             _date:util.formatDate(new Date())
         })
 
-    //    this.onGetOpenid();
+        this.onGetOpenid();
 
     },
     
@@ -139,6 +139,11 @@ Page({
     //提交表单，将用户数据添加到云端数据库
     submit(e) {
         this.onAdd();
+    //    this.setData({
+    //        money: '',
+    //        note: ''
+
+    //    })
     },
     //向数据库插入数据
     onAdd: function() {
@@ -176,9 +181,7 @@ Page({
                 })
                 this.setData({
                     money: '',
-                    note:'',
-                    date: _date
-
+                    note:''
                 })
                 console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
             },

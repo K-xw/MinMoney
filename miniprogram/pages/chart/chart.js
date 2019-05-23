@@ -4,7 +4,9 @@ const util = require('../../utils/utils.js')
 const wxCharts = require('../../utils/wxcharts-min.js')
 
 const app = getApp();
-
+const db = wx.cloud.database({
+    env: 'test-6e75df'
+});
 var yearArr = []
 var flag = true //标志
 Page({
@@ -61,6 +63,7 @@ Page({
         }
         this.initChart(this.piecb)
     },
+    /*
     // 分类 和 月份 之间的切换
     changeChart:function(e){
         let select = e.currentTarget.dataset.select;
@@ -81,6 +84,8 @@ Page({
             this.initChart(this.piecb)
         }
     },
+    */
+    /*
     //  一年的月份 画图 的数据
     getAll:function(num,cb){
         //获取数据库
@@ -130,6 +135,8 @@ Page({
             }
         })
     },
+    */
+    /*
     // 处理 一年的月份 数据，用于画 柱状图
     columcb:function(res){
         this.setData({
@@ -247,6 +254,7 @@ Page({
         var columnChart = new wxCharts(column)
 
     },
+    
     //改年
     bindDateChangeYear(e) {
         let seleYear = e.detail.value;
@@ -259,6 +267,7 @@ Page({
         flag = true
         this.getAll(0, this.columcb)
      },
+     */
     //显示 饼 图表
     pieChartShow: function() {
         var windowWidth = 150;
@@ -308,9 +317,6 @@ Page({
         //获取数据库
         //获取数据库里的Money集合
         var reg_date = new RegExp(this.data.date);
-        const db = wx.cloud.database({
-            env: 'test-6e75df'
-        });
         db.collection('Money').where({
             _openid: this.data.openid, // 填入当前用户 openid
             active: this.data.isActive,

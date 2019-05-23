@@ -35,7 +35,7 @@
 
         <view wx:if="{{!selectShow}}">
             <image class='none_img' src='/images/none_big.png' mode="aspectFit"></image>
-            <view class='none'>本月没有数据</view>
+            <view class='none'>没有数据</view>
         </view>
     </view>
 </view>

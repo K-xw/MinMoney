@@ -44,6 +44,9 @@ Page({
         this.initData()
         this.initEleWidth();
     },
+    onShow:function(){
+        this.initData()
+    },
     //初始数据
     initData: function(o){
         var that = this;
@@ -60,15 +63,16 @@ Page({
                 } 
             }
             var d = o.dat
-            var _year = util.formatDateYear(new Date());
-            var _date = _year + '-' + d;
-            var reg_date = new RegExp(_date);
+        //    var _year = util.formatDateYear(new Date());
+        //    var _date = _year + '-' + d;
+            var reg_date = new RegExp(d);
     
         }else{
             var _date = util.formatDateMonth(new Date());
             var reg_date = new RegExp(_date);
 
         }
+        console.log("sfdsfsdf", reg_date)
         db.collection('Money').where({
             _openid: this.data.openid, // 填入当前用户 openid
             seleDate: reg_date,
@@ -79,7 +83,7 @@ Page({
                 if (res.data.length == 0){
                     wx.showToast({
                         image: '/images/none.png',
-                        title: '本月没有数据',
+                        title: '没有数据',
                     })
                 }
                 res.data.reverse()
@@ -162,7 +166,7 @@ Page({
         /** 为iphone6 时间选择器 做兼容处理 */
         var year = seleDate.split('-')[0]
         var mon = seleDate.split('-')[1]
-        if ( year.length == 2){
+        if ( year.length < 4 ){
             seleDate = 2000 + parseInt(year,10)
             seleDate = seleDate + '-' + mon;
         }
@@ -183,7 +187,8 @@ Page({
         }
         let obj = new Object()
         obj.categoryid = '';
-        obj.dat = seleM;
+        obj.dat = seleDate;
+        console.log("兼容", obj)
         this.initData(obj)
     },
     //获取元素自适应后的实际宽度 
